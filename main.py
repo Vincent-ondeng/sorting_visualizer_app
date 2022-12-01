@@ -1,3 +1,4 @@
+from flask import Flask
 from tkinter import ttk
 import random
 from tkinter import *
@@ -14,6 +15,11 @@ from algorithms.quickSort import quick_sort
 from algorithms.heapSort import heap_sort
 from algorithms.countingSort import counting_sort
 
+app = Flask(__name__)
+
+@app.route("/")
+def index():
+    return "Congratulations, it's a web app!"
 
 # Main window using the TK widget
 window = Tk()
@@ -31,6 +37,7 @@ speed_list = ['slow', 'Medium', 'Fast']
 
 
 # Drawing the numerical array as bars
+@app.route("/<data")
 def drawData(data, colorArray):
     canvas.delete("all")
     canvas_width = 800
